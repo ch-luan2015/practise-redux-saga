@@ -1,11 +1,22 @@
 import React from 'react'
 import { Box, Button } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { authActions } from 'features/auth/authSlice';
 
 type Props = {}
 
 
 
 function LoginPage({ }: Props) {
+
+  const dispatch = useDispatch();
+
+  const handleLogin = () => {
+    dispatch(authActions.login({
+      username: "Luan",
+      password: "hello"
+    }))
+  }
   return (
     <>
       <Box
@@ -26,7 +37,7 @@ function LoginPage({ }: Props) {
         }}
       >
         <p>Login Page</p>
-        <Button variant="contained" sx={{ m: "auto" }}>Fake Login</Button>      </Box>
+        <Button variant="contained" sx={{ m: "auto" }} onClick={() => handleLogin()}>Fake Login</Button>      </Box>
     </>
   )
 }
