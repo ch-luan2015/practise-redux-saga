@@ -20,21 +20,29 @@ function* handleLogin(payload: LoginPayload) {
   }
 }
 
-function* handleLogout() {
-  try {
-    //Phase 1 : remove tat ca du lieu
-    // yield delay(500);
-    localStorage.removeItem("token");
-    localStorage.removeItem("currentUser");
+// function* handleLogout() {
 
-    //Phase 2 : chuyen ve trang home hay login
-    yield put(push("/login"));
-  } catch (error: any) {
-    console.log(error.message);
-  }
+//     //Phase 1 : remove tat ca du lieu
+//     // yield delay(500);
+//     localStorage.removeItem("token");
+//     localStorage.removeItem("currentUser");
+
+//     //Phase 2 : chuyen ve trang home hay login
+//     yield put(push("/login"));
+ 
+// }
+
+function* handleLogout() {
+  yield delay(500);
+  localStorage.removeItem('token');
+  localStorage.removeItem("currentUser");
+
+  // redirect to login page
+  yield put(push('/login'));
 }
 
 function* watchLoginFlow() {
+
   while (true) {
     const isLogin = Boolean(localStorage.getItem("token"));
 
@@ -46,10 +54,10 @@ function* watchLoginFlow() {
     }
 
     // Neu login roi thi doi user thuc hien 1 acction co type logout
-    console.log("authActions.logout.type", authActions.logout.type);
     yield take(authActions.logout.type);
     yield call(handleLogout);
   }
+  
 }
 
 export default function* authSaga() {

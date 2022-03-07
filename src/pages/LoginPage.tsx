@@ -37,7 +37,7 @@ function LoginPage({ }: Props) {
         }}
       >
         <p>Login Page</p>
-        <Button variant="contained" sx={{ m: "auto" }} onClick={() => handleLogin()}>Fake Login</Button>      </Box>
+        <Button variant="contained" sx={{ m: "auto" }} onClick={handleLogin}>Fake Login</Button></Box>
     </>
   )
 }

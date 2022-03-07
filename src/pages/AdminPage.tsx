@@ -11,7 +11,7 @@ function AdminPage({ }: Props) {
 
 
   const handleLogout = () => {
-    dispatch(authActions.logout);
+    dispatch(authActions.logout());
   }
   return (
     <>
@@ -34,7 +34,7 @@ function AdminPage({ }: Props) {
       >
         <p>Admin Page</p>
         <Button color="error" variant="contained" sx={{ m: "auto" }}
-          onClick={() => handleLogout()}
+          onClick={handleLogout}
         >Logout</Button>
       </Box>
     </>
