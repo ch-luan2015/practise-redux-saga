@@ -20,29 +20,16 @@ function* handleLogin(payload: LoginPayload) {
   }
 }
 
-// function* handleLogout() {
-
-//     //Phase 1 : remove tat ca du lieu
-//     // yield delay(500);
-//     localStorage.removeItem("token");
-//     localStorage.removeItem("currentUser");
-
-//     //Phase 2 : chuyen ve trang home hay login
-//     yield put(push("/login"));
- 
-// }
-
 function* handleLogout() {
   yield delay(500);
-  localStorage.removeItem('token');
+  localStorage.removeItem("token");
   localStorage.removeItem("currentUser");
 
   // redirect to login page
-  yield put(push('/login'));
+  yield put(push("/"));
 }
 
 function* watchLoginFlow() {
-
   while (true) {
     const isLogin = Boolean(localStorage.getItem("token"));
 
@@ -57,7 +44,6 @@ function* watchLoginFlow() {
     yield take(authActions.logout.type);
     yield call(handleLogout);
   }
-  
 }
 
 export default function* authSaga() {

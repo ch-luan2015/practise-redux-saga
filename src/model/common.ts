@@ -10,3 +10,13 @@ export interface ListResponse<T> {
   data: T[];
   pagination: PaginationParams;
 }
+
+export interface ListParams {
+  _page: number;
+  _limit: number;
+  _sort: string;
+  _order: "asc" | "desc";
+
+  //! Khai bao cac kieu du lieu khac
+  [key: string]: any;
+}

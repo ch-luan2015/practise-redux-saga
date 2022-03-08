@@ -13,12 +13,11 @@ function App() {
 
   useEffect(() => {
     cityApi.getAll().then(res => console.log(res.data));
-
   })
   return (
     <>
       <Switch>
-        <Route path="/login">
+        <Route exact path="/">
           <LoginPage />
         </Route>
         <Route path="/admin">
