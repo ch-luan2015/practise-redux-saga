@@ -6,11 +6,13 @@ import { store, history } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { ConnectedRouter } from 'connected-react-router'
+import { CssBaseline } from '@material-ui/core';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ConnectedRouter history={history}>
+        <CssBaseline />
         <App />
       </ConnectedRouter>
     </Provider>

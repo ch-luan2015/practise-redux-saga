@@ -1,8 +1,8 @@
 
 import cityApi from 'api/citiApi';
-import studentsApi from 'api/studentsApi';
-import AdminPage from 'pages/AdminPage';
-import LoginPage from 'pages/LoginPage';
+import { NotFound, PrivateRoute } from 'components/common';
+import { AdminLayout } from 'components/layout';
+import LoginPage from 'features/auth/pages/LoginPage';
 import { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
@@ -17,13 +17,18 @@ function App() {
   return (
     <>
       <Switch>
-        <Route exact path="/">
+
+        <Route path="/login">
           <LoginPage />
         </Route>
-        <Route path="/admin">
-          <AdminPage />
-        </Route>
 
+        <PrivateRoute exact path="/admin">
+          <AdminLayout />
+        </PrivateRoute>
+
+        <Route>
+          <NotFound />
+        </Route>
       </Switch>
     </>
   );

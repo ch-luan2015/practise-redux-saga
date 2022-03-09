@@ -1,21 +1,17 @@
 import React from 'react'
-import { Box, Button } from '@mui/material';
-import { useDispatch } from 'react-redux';
+import { Button, Box } from '@mui/material'
 import { authActions } from 'features/auth/authSlice';
+import { useDispatch } from 'react-redux'
 
 type Props = {}
 
-
-
-function LoginPage({ }: Props) {
+export function AdminLayout({ }: Props) {
 
   const dispatch = useDispatch();
 
-  const handleLogin = () => {
-    dispatch(authActions.login({
-      username: "Luan",
-      password: "hello"
-    }))
+
+  const handleLogout = () => {
+    dispatch(authActions.logout());
   }
   return (
     <>
@@ -36,10 +32,13 @@ function LoginPage({ }: Props) {
           fontWeight: '700',
         }}
       >
-        <p>Login Page</p>
-        <Button variant="contained" sx={{ m: "auto" }} onClick={handleLogin}>Fake Login</Button></Box>
+        <p>Admin Page</p>
+        <Button color="error" variant="contained" sx={{ m: "auto" }}
+          onClick={handleLogout}
+        >Logout</Button>
+      </Box>
     </>
   )
 }
 
-export default LoginPage;
+

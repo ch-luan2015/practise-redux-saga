@@ -26,7 +26,7 @@ function* handleLogout() {
   localStorage.removeItem("currentUser");
 
   // redirect to login page
-  yield put(push("/"));
+  yield put(push("/login"));
 }
 
 function* watchLoginFlow() {
