@@ -14,7 +14,7 @@ function* handleLogin(payload: LoginPayload) {
     localStorage.setItem("currentUser", JSON.stringify(payload));
 
     //Phase 3: Redirect to admin Page
-    yield put(push("/admin"));
+    yield put(push("/admin/dashboard"));
   } catch (error: any) {
     console.log(error.message);
   }
@@ -26,7 +26,7 @@ function* handleLogout() {
   localStorage.removeItem("currentUser");
 
   // redirect to login page
-  yield put(push("/login"));
+  yield put(push("/"));
 }
 
 function* watchLoginFlow() {

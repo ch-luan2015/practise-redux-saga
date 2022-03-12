@@ -18,11 +18,11 @@ function App() {
     <>
       <Switch>
 
-        <Route path="/login">
+        <Route exact path="/">
           <LoginPage />
         </Route>
 
-        <PrivateRoute exact path="/admin">
+        <PrivateRoute path="/admin">
           <AdminLayout />
         </PrivateRoute>
 

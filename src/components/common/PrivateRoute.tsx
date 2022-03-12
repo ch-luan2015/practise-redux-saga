@@ -7,10 +7,10 @@ export interface PrivateRouteProps {
 export function PrivateRoute(props: RouteProps) {
 
   //Check if user login
-
   const isLoggedIn = Boolean(localStorage.getItem("token"));
+  
   // if yes, show route
-  if (!isLoggedIn) return <Redirect to="/login" />
+  if (!isLoggedIn) return <Redirect to="/" />
   // otherwise, redirect to login
 
 
