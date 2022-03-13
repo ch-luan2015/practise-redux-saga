@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User } from "model/user";
+import { User } from "models/user";
 
 export interface LoginPayload {
   username: string;

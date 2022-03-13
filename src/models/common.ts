@@ -1,7 +1,7 @@
 export interface PaginationParams {
   _limit: number;
   _page: number;
-  _total: number;
+  _totalRows: number;
 }
 
 //! Thong nhat voi nhau la tat ca cac request tra ve mot cai list thi no deu co format la mot obj ListResponse
@@ -10,13 +10,11 @@ export interface ListResponse<T> {
   data: T[];
   pagination: PaginationParams;
 }
-
 export interface ListParams {
   _page?: number;
   _limit?: number;
-  _sort: string;
-  _order: "asc" | "desc";
+  _sort?: string;
+  _order?: "asc" | "desc";
 
-  //! Khai bao cac kieu du lieu khac
   [key: string]: any;
 }

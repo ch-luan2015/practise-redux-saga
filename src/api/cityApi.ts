@@ -1,4 +1,4 @@
-import { City, ListResponse } from "model";
+import { City, ListResponse } from "models";
 import axiosClient from "./axiosClient";
 
 //? Lam sao der getAll tra ve mot mang chu o phai mot AxiosReponse, lam nhu the nao va gan kieu du lieu nhu the nao?
@@ -8,7 +8,6 @@ import axiosClient from "./axiosClient";
 const cityApi = {
   getAll(): Promise<ListResponse<City>> {
     const url = "/cities";
-    //? Định dạng thêm để truyền vào các params
     return axiosClient.get(url, {
       params: {
         _page: 1,

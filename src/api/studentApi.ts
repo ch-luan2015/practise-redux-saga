@@ -1,4 +1,4 @@
-import { Student, ListResponse, ListParams } from "model";
+import { Student, ListResponse, ListParams } from "models";
 import axiosClient from "./axiosClient";
 
 //? Lam sao der getAll tra ve mot mang chu o phai mot AxiosReponse, lam nhu the nao va gan kieu du lieu nhu the nao?
@@ -28,7 +28,7 @@ const studentApi = {
     return axiosClient.delete(url);
   },
 
-  update(data: Student): Promise<Student> {
+  update(data: Partial<Student>): Promise<Student> {
     const url = "/students";
     return axiosClient.patch(url, data);
   },
